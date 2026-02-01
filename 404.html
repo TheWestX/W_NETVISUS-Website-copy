@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="ru" data-theme="w_netvisus">
+<html lang="en" data-theme="w_netvisus">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 • Страница не найдена • W_NETVISUS</title>
+  <title>404 • W_NETVISUS</title>
 
-  <meta name="description" content="404 page for W_NETVISUS." />
+  <meta name="description" content="404 page for W_NETVISUS practice website with helpful links." />
   <meta name="theme-color" content="#0B0705" />
 
   <link rel="icon" href="./assets/logo.png" />
@@ -14,72 +14,27 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/daisyui.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/themes.css" />
 
-  <style>
-    [data-theme="w_netvisus"]{
-      --p: 82% 0.12 70; --pc: 14% 0.02 45;
-      --n: 18% 0.02 45; --nc: 96% 0.01 80;
-      --rounded-box: 1.25rem; --rounded-btn: 9999px;
-    }
-    :root{ --hero0:#0B0705; --hero2:#1C1510; --gold:#C7A17A; --gold2:#E1C39A; }
-
-    .header-glass{
-      background: rgba(11,7,5,.62);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar{
-      background: linear-gradient(180deg, rgba(11,7,5,.85), rgba(11,7,5,.65));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-
-    .btn.btn-primary{
-      background: linear-gradient(180deg, rgba(225,195,154,.88), rgba(199,161,122,.78));
-      border-color: rgba(199,161,122,.65);
-      color: #1b130e;
-      box-shadow: 0 12px 30px rgba(0,0,0,.28) !important;
-    }
-    .btn.btn-primary:hover{
-      background: linear-gradient(180deg, rgba(225,195,154,.96), rgba(199,161,122,.85));
-      transform: translateY(-1px);
-    }
-
-    .btn,
-    .btn:focus,
-    .btn:focus-visible,
-    .btn:active,
-    input:focus{
-      outline: none !important;
-      box-shadow: none !important;
-      --tw-ring-shadow: 0 0 #0000 !important;
-      --tw-ring-offset-shadow: 0 0 #0000 !important;
-      --tw-ring-color: transparent !important;
-      --tw-ring-offset-color: transparent !important;
-    }
-    .btn.btn-primary{ box-shadow: 0 12px 30px rgba(0,0,0,.28) !important; }
-
-    .navlink{ color: rgba(255,255,255,.78); }
-    .navlink:hover{ color: rgba(255,255,255,.95); background: rgba(255,255,255,.06); }
-
-    .footerline{ border-top: 1px solid rgba(15,23,42,.10); }
-  </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
-<body class="min-h-screen bg-slate-50">
+<body class="min-h-screen">
 
+  <!-- Top bar -->
   <div class="w-full topbar">
     <div class="mx-auto max-w-6xl px-4 py-2">
       <div class="text-center text-xs sm:text-sm text-white/80">
-        <b class="text-white">W_NETVISUS</b> — 404 (проверка для практики 8).
+        Looks like this URL doesn't exist. Use the links below to continue.
       </div>
     </div>
   </div>
 
-  <!-- Header (единый) -->
+  <!-- Header (same on all pages) -->
   <header class="sticky top-0 z-50 header-glass">
     <div class="mx-auto max-w-6xl px-4 py-3">
       <div class="navbar px-0">
+
         <div class="navbar-start gap-3">
-          <a href="index.html" class="flex items-center gap-3">
+          <a href="./index.html#top" class="flex items-center gap-3">
             <img src="./assets/logo.png" alt="W_NETVISUS logo" class="h-10 w-10 object-contain" />
             <div class="leading-tight">
               <div class="font-extrabold tracking-wide text-white">W_NETVISUS</div>
@@ -90,22 +45,23 @@
 
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 gap-1">
-            <li><a class="navlink rounded-xl" href="index.html">Главная</a></li>
-            <li><a class="navlink rounded-xl" href="contacts.html">Контакты / Отзывы</a></li>
-            <li><a class="navlink rounded-xl" href="faq.html">FAQ</a></li>
+            <li><a class="navlink rounded-xl" href="./index.html">Home</a></li>
+            <li><a class="navlink rounded-xl" href="./contact.html">Contact</a></li>
+            <li><a class="navlink rounded-xl" href="./faq.html">FAQ</a></li>
           </ul>
         </div>
 
         <div class="navbar-end gap-2">
-          <a href="index.html#download" class="btn btn-primary btn-sm sm:btn-md">Download</a>
-          <a href="contacts.html" class="btn btn-ghost btn-sm text-white hover:bg-white/10">Contact</a>
+          <a href="./index.html#download" class="btn btn-primary btn-sm sm:btn-md">Download</a>
+          <a href="./contact.html" class="btn btn-outline gold btn-sm sm:btn-md">Contact</a>
 
           <div class="dropdown dropdown-end lg:hidden">
             <label tabindex="0" class="btn btn-ghost btn-sm text-white hover:bg-white/10">Menu</label>
-            <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-[#110C09]/95 border border-white/10 rounded-2xl w-72">
-              <li><a class="text-white/85 hover:text-white" href="index.html">Главная</a></li>
-              <li><a class="text-white/85 hover:text-white" href="contacts.html">Контакты / Отзывы</a></li>
-              <li><a class="text-white/85 hover:text-white" href="faq.html">FAQ</a></li>
+            <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-[#110C09]/95 border border-white/10 rounded-2xl w-56">
+              <li><a class="text-white/85 hover:text-white" href="./index.html">Home</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./contact.html">Contact</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./faq.html">FAQ</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./index.html#download">Download</a></li>
             </ul>
           </div>
         </div>
@@ -114,51 +70,101 @@
     </div>
   </header>
 
-  <!-- 404 content -->
-  <main class="mx-auto max-w-6xl px-4 py-16">
-    <div class="grid gap-8 lg:grid-cols-2 lg:items-center">
-      <div>
-        <div class="text-8xl font-extrabold tracking-tight text-slate-900">404</div>
-        <h1 class="mt-2 text-3xl font-bold text-slate-800">Ой! Страница не найдена</h1>
-        <p class="mt-3 text-slate-600 max-w-lg">
-          Похоже, ссылка неправильная или страница переехала. Ниже — быстрые пути назад и полезные разделы.
-        </p>
+  <!-- 404 hero -->
+  <main class="hero-bg">
+    <div class="mx-auto max-w-6xl px-4 py-16 lg:py-20">
+      <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
 
-        <div class="mt-6 flex flex-wrap gap-3">
-          <a href="index.html" class="btn btn-primary">На главную</a>
-          <a href="contacts.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">Связаться</a>
-          <a href="faq.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">FAQ</a>
-        </div>
-
-        <div class="mt-8">
-          <div class="text-sm font-semibold text-slate-900">Быстрый поиск по разделам (локальный)</div>
-          <div class="mt-3 flex gap-3 flex-wrap">
-            <input id="q" class="input input-bordered bg-white w-full max-w-md" placeholder="Например: контакты, faq, download" />
-            <button id="go" class="btn btn-primary">Перейти</button>
-          </div>
-          <p class="mt-2 text-xs text-slate-500">
-            Поиск сделан простым JS: вводишь ключ — перебрасывает на подходящую страницу.
+        <section>
+          <div class="text-xs font-semibold tracking-wide text-white/60">Error</div>
+          <h1 class="mt-3 text-6xl md:text-7xl font-extrabold tracking-tight text-white leading-[0.95]">
+            404
+          </h1>
+          <p class="mt-4 text-white/75 max-w-xl">
+            The page you requested was not found. This is a styled 404 page with helpful navigation,
+            as required in Practice 8.
           </p>
-        </div>
-      </div>
 
-      <div class="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm">
-        <div class="text-sm text-slate-500">Навигация</div>
-        <nav class="mt-4 grid gap-3">
-          <a class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 justify-start" href="index.html">Главная</a>
-          <a class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 justify-start" href="index.html#download">Download (секция)</a>
-          <a class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 justify-start" href="contacts.html">Контакты / Отзывы</a>
-          <a class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 justify-start" href="faq.html">FAQ</a>
-        </nav>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="./index.html" class="btn btn-primary">Go to Home</a>
+            <a href="./faq.html" class="btn btn-outline gold">Open FAQ</a>
+          </div>
 
-        <div class="mt-6 text-xs text-slate-500">
-          Под GitHub Pages этот файл должен лежать в корне как <b>404.html</b>.
-        </div>
+          <div class="mt-10 grid gap-3 sm:grid-cols-3">
+            <a href="./index.html#download" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10 transition">
+              <div class="text-xs text-white/55">Section</div>
+              <div class="mt-1 font-bold text-white/90">Download</div>
+            </a>
+            <a href="./index.html#documentation" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10 transition">
+              <div class="text-xs text-white/55">Section</div>
+              <div class="mt-1 font-bold text-white/90">Docs</div>
+            </a>
+            <a href="./contact.html" class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 hover:bg-white/10 transition">
+              <div class="text-xs text-white/55">Page</div>
+              <div class="mt-1 font-bold text-white/90">Contact</div>
+            </a>
+          </div>
+        </section>
+
+        <aside class="flex justify-center lg:justify-end">
+          <div class="logo-art" style="min-height: 260px;">
+            <img src="./assets/logo.png" alt="W_NETVISUS visual mark" />
+          </div>
+        </aside>
+
       </div>
     </div>
   </main>
 
-  <!-- Footer (единый) -->
+  <!-- Below fold -->
+  <section class="below">
+    <div class="mx-auto max-w-6xl px-4 py-14 relative">
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <div class="card paper-card lg:col-span-2">
+          <div class="card-body">
+            <h2 class="card-title text-xl">What you can do now</h2>
+            <ul class="mt-2 list-disc pl-5 text-slate-600 space-y-1">
+              <li>Check the URL for typos.</li>
+              <li>Use the menu — it’s the same across all pages.</li>
+              <li>Open FAQ for common issues and scanning notes.</li>
+            </ul>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href="./index.html" class="btn btn-primary">Home</a>
+              <a href="./contact.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">Contact</a>
+              <a href="./faq.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">FAQ</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="card paper-card">
+          <div class="card-body">
+            <h2 class="card-title text-xl">External links</h2>
+            <p class="text-slate-600">Repo and releases (optional but helpful).</p>
+
+            <div class="mt-4 space-y-2">
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start"
+                 href="https://github.com/TheWestX/W_NETVISUS" target="_blank" rel="noopener">
+                Open repository
+              </a>
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start"
+                 href="https://github.com/TheWestX/W_NETVISUS/releases" target="_blank" rel="noopener">
+                Releases
+              </a>
+            </div>
+
+            <div class="mt-6 text-xs text-slate-500">
+              For GitHub Pages, keep this file named <b>404.html</b> in the root.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer (same on all pages) -->
   <footer class="footerline bg-white">
     <div class="mx-auto max-w-6xl px-4 py-10">
       <div class="grid gap-6 md:grid-cols-3">
@@ -171,25 +177,34 @@
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-600">
-            Multi-page practice website (P8). Warm charcoal + gold.
+            Multi-page practice website (P8). Warm charcoal + gold. Tailwind + daisyUI.
           </p>
         </div>
 
         <div>
-          <div class="font-bold text-slate-900">Навигация</div>
+          <div class="font-bold text-slate-900">Navigation</div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            <li><a class="link link-hover" href="index.html">Главная</a></li>
-            <li><a class="link link-hover" href="contacts.html">Контакты / Отзывы</a></li>
-            <li><a class="link link-hover" href="faq.html">FAQ</a></li>
+            <li><a class="link link-hover" href="./index.html">Home</a></li>
+            <li><a class="link link-hover" href="./contact.html">Contact</a></li>
+            <li><a class="link link-hover" href="./faq.html">FAQ</a></li>
+            <li><a class="link link-hover" href="./index.html#download">Download</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="font-bold text-slate-900">Тех</div>
+          <div class="font-bold text-slate-900">Links</div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            <li>Tailwind (CDN) + daisyUI (CDN)</li>
-            <li>Единый UI на всех страницах</li>
-            <li>GitHub Pages ready</li>
+            <li>
+              <a class="link link-hover" href="https://github.com/TheWestX/W_NETVISUS" target="_blank" rel="noopener">
+                Repository
+              </a>
+            </li>
+            <li>
+              <a class="link link-hover" href="https://github.com/TheWestX/W_NETVISUS/releases" target="_blank" rel="noopener">
+                Releases
+              </a>
+            </li>
+            <li><a class="link link-hover" href="./404.html">404 page</a></li>
           </ul>
           <div class="mt-4">
             <span class="badge badge-outline border-slate-300 text-slate-700">Practice 8</span>
@@ -203,31 +218,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    // мини-поиск: ключ -> страница
-    (function () {
-      const map = [
-        { keys: ["home", "глав", "index"], url: "index.html" },
-        { keys: ["download", "релиз", "release"], url: "index.html#download" },
-        { keys: ["contact", "конт", "отзыв", "feedback"], url: "contacts.html" },
-        { keys: ["faq", "вопрос", "help"], url: "faq.html" }
-      ];
-
-      const q = document.getElementById("q");
-      const go = document.getElementById("go");
-
-      function navigate() {
-        const v = (q.value || "").trim().toLowerCase();
-        if (!v) return;
-        const hit = map.find(x => x.keys.some(k => v.includes(k)));
-        window.location.href = hit ? hit.url : "index.html";
-      }
-
-      go.addEventListener("click", navigate);
-      q.addEventListener("keydown", (e) => { if (e.key === "Enter") navigate(); });
-    })();
-  </script>
 
 </body>
 </html>

@@ -1,0 +1,213 @@
+/* =========
+   Shared styles for ALL pages (Practice 8)
+   Tailwind CDN + daisyUI CDN are loaded in HTML.
+   Theme: warm charcoal + gold (NO blue/purple glow).
+========= */
+
+[data-theme="w_netvisus"]{
+  --b1: 98% 0 0;
+  --b2: 96% 0 0;
+  --b3: 92% 0 0;
+  --bc: 16% 0.02 45;
+
+  --p: 82% 0.12 70;
+  --pc: 14% 0.02 45;
+
+  --s: 70% 0.06 65;
+  --sc: 14% 0.02 45;
+  --a: 78% 0.10 70;
+  --ac: 14% 0.02 45;
+
+  --n: 18% 0.02 45;
+  --nc: 96% 0.01 80;
+
+  --rounded-box: 1.25rem;
+  --rounded-btn: 9999px;
+  --rounded-badge: 9999px;
+  --animation-btn: 0.15s;
+  --animation-input: 0.15s;
+  --btn-focus-scale: 0.98;
+  --border-btn: 1px;
+  --tab-border: 1px;
+  --tab-radius: 0.85rem;
+}
+
+:root{
+  --hero0: #0B0705;
+  --hero1: #15100C;
+  --hero2: #1C1510;
+  --gold:  #C7A17A;
+  --gold2: #E1C39A;
+}
+
+html{scroll-behavior:smooth}
+body{overflow-x:hidden}
+
+/* ===== Header / Topbar ===== */
+.header-glass{
+  background: rgba(11,7,5,.62);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.topbar{
+  background: linear-gradient(180deg, rgba(11,7,5,.85), rgba(11,7,5,.65));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.navlink{
+  color: rgba(255,255,255,.78);
+}
+.navlink:hover{
+  color: rgba(255,255,255,.95);
+  background: rgba(255,255,255,.06);
+}
+.navlink.is-active{
+  color: rgba(255,255,255,.98);
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(225,195,154,.18);
+}
+
+/* ===== Hero backgrounds ===== */
+.hero-bg{
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(1100px 700px at 18% 10%, rgba(199,161,122,.20), transparent 62%),
+    radial-gradient(900px 620px at 82% 18%, rgba(199,161,122,.14), transparent 60%),
+    radial-gradient(900px 520px at 55% 110%, rgba(199,161,122,.06), transparent 60%),
+    linear-gradient(180deg, var(--hero2), var(--hero0));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.hero-bg::after{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity:.16;
+  background-image:
+    radial-gradient(circle at 10px 10px, rgba(255,255,255,.18) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.09) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(255,255,255,.07) 1px, transparent 1px);
+  background-size: 44px 44px, 220px 220px, 220px 220px;
+  mask-image: radial-gradient(820px 480px at 30% 35%, black, transparent 75%);
+}
+
+/* small page hero */
+.page-hero{
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 520px at 10% 15%, rgba(199,161,122,.14), transparent 60%),
+    linear-gradient(180deg, var(--hero2), var(--hero0));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+/* ===== Sections ===== */
+.anchor{scroll-margin-top:96px}
+
+.below{
+  background:
+    radial-gradient(900px 520px at 12% 0%, rgba(199,161,122,.10), transparent 60%),
+    radial-gradient(900px 520px at 90% 20%, rgba(199,161,122,.08), transparent 60%),
+    linear-gradient(180deg, #fbfbfc, #f2f3f6);
+  position:relative;
+}
+.below::before{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  opacity:.25;
+  background-image: radial-gradient(circle at 10px 10px, rgba(17,24,39,.16) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(180deg, black 0%, black 55%, transparent 100%);
+}
+
+.section-title{ letter-spacing:-.6px; }
+.muted-light{ color: rgba(15,23,42,.68); }
+
+/* ===== Cards / code ===== */
+.paper-card{
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(15,23,42,.10);
+  box-shadow: 0 12px 30px rgba(0,0,0,.06);
+}
+.codeblock{
+  background: #0B0705;
+  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.12);
+}
+
+/* ===== BADGES ===== */
+.tag{
+  border: 1px solid rgba(15,23,42,.12);
+  background: rgba(255,255,255,.70);
+}
+
+/* ===== Buttons: remove purple glow / rings ===== */
+.btn, .input, .select, .textarea{
+  outline: none !important;
+  box-shadow: none !important;
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+}
+
+.btn:focus, .btn:focus-visible, .btn:active{
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Force primary buttons to be gold */
+.btn.btn-primary{
+  background: linear-gradient(180deg, rgba(225,195,154,.85), rgba(199,161,122,.75));
+  border-color: rgba(199,161,122,.65);
+  color: #1b130e;
+  box-shadow: 0 12px 30px rgba(0,0,0,.28) !important;
+}
+.btn.btn-primary:hover{
+  background: linear-gradient(180deg, rgba(225,195,154,.95), rgba(199,161,122,.82));
+  transform: translateY(-1px);
+}
+
+.btn.btn-outline.gold{
+  border-color: rgba(225,195,154,.30);
+  color: rgba(255,255,255,.92);
+}
+.btn.btn-outline.gold:hover{
+  background: rgba(255,255,255,.10);
+  border-color: rgba(225,195,154,.40);
+}
+
+/* ===== Remove the "sun" glow near the logo (user request) ===== */
+.logo-art{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height: 360px;
+}
+.logo-art img{
+  width:min(520px, 86%);
+  height:auto;
+  object-fit:contain;
+  filter: drop-shadow(0 26px 70px rgba(0,0,0,.60));
+  opacity:.95;
+  transform: rotate(-2deg);
+}
+
+/* ===== Steps accent ===== */
+.steps .step-primary::after {
+  background-color: var(--gold) !important;
+  color: #1b130e !important;
+}
+.steps .step-primary::before {
+  background-color: var(--gold) !important;
+}
+
+/* ===== Footer ===== */
+.footerline{ border-top: 1px solid rgba(15,23,42,.10); }
+
+/* ===== 404 extras ===== */
+.big-404{
+  font-size: clamp(64px, 12vw, 120px);
+  line-height: 0.9;
+  letter-spacing: -2px;
+}

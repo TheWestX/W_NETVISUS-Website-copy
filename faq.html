@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="ru" data-theme="w_netvisus">
+<html lang="en" data-theme="w_netvisus">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FAQ • W_NETVISUS</title>
 
-  <meta name="description" content="FAQ for W_NETVISUS." />
+  <meta name="description" content="W_NETVISUS FAQ: answers about scanning modes, permissions, fingerprints, and troubleshooting." />
   <meta name="theme-color" content="#0B0705" />
 
   <link rel="icon" href="./assets/logo.png" />
@@ -14,99 +14,28 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/daisyui.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/themes.css" />
 
-  <style>
-    [data-theme="w_netvisus"]{
-      --b1: 98% 0 0; --b2: 96% 0 0; --b3: 92% 0 0; --bc: 16% 0.02 45;
-      --p: 82% 0.12 70; --pc: 14% 0.02 45;
-      --s: 70% 0.06 65; --sc: 14% 0.02 45;
-      --a: 78% 0.10 70; --ac: 14% 0.02 45;
-      --n: 18% 0.02 45; --nc: 96% 0.01 80;
-      --rounded-box: 1.25rem; --rounded-btn: 9999px; --rounded-badge: 9999px;
-    }
-    :root{ --hero0:#0B0705; --hero2:#1C1510; --gold:#C7A17A; --gold2:#E1C39A; }
-    body{overflow-x:hidden}
-    .header-glass{
-      background: rgba(11,7,5,.62);
-      backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .topbar{
-      background: linear-gradient(180deg, rgba(11,7,5,.85), rgba(11,7,5,.65));
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .page-hero{
-      background:
-        radial-gradient(1000px 600px at 18% 10%, rgba(199,161,122,.16), transparent 62%),
-        radial-gradient(900px 520px at 78% 22%, rgba(199,161,122,.06), transparent 62%),
-        linear-gradient(180deg, var(--hero2), var(--hero0));
-    }
-    .footerline{ border-top: 1px solid rgba(15,23,42,.10); }
-
-    .btn.btn-primary{
-      background: linear-gradient(180deg, rgba(225,195,154,.88), rgba(199,161,122,.78));
-      border-color: rgba(199,161,122,.65);
-      color: #1b130e;
-      box-shadow: 0 12px 30px rgba(0,0,0,.28) !important;
-    }
-    .btn.btn-primary:hover{
-      background: linear-gradient(180deg, rgba(225,195,154,.96), rgba(199,161,122,.85));
-      transform: translateY(-1px);
-    }
-    .btn.btn-outline.gold{
-      border-color: rgba(225,195,154,.30);
-      color: rgba(255,255,255,.92);
-    }
-    .btn.btn-outline.gold:hover{
-      background: rgba(255,255,255,.10);
-      border-color: rgba(225,195,154,.40);
-    }
-
-    /* убрать ring */
-    .btn,
-    .btn:focus,
-    .btn:focus-visible,
-    .btn:active{
-      outline: none !important;
-      box-shadow: none !important;
-      --tw-ring-shadow: 0 0 #0000 !important;
-      --tw-ring-offset-shadow: 0 0 #0000 !important;
-      --tw-ring-color: transparent !important;
-      --tw-ring-offset-color: transparent !important;
-    }
-    .btn.btn-primary{ box-shadow: 0 12px 30px rgba(0,0,0,.28) !important; }
-
-    .navlink{ color: rgba(255,255,255,.78); }
-    .navlink:hover{ color: rgba(255,255,255,.95); background: rgba(255,255,255,.06); }
-    .navlink.is-active{
-      color: rgba(255,255,255,.96);
-      background: rgba(199,161,122,.18);
-      border: 1px solid rgba(199,161,122,.25);
-    }
-
-    .paper-card{
-      background: rgba(255,255,255,.92);
-      border: 1px solid rgba(15,23,42,.10);
-      box-shadow: 0 12px 30px rgba(0,0,0,.06);
-    }
-    .muted-light{ color: rgba(15,23,42,.68); }
-  </style>
+  <link rel="stylesheet" href="./styles.css" />
 </head>
 
-<body class="min-h-screen" data-page="faq">
+<body class="min-h-screen">
 
+  <!-- Top bar -->
   <div class="w-full topbar">
     <div class="mx-auto max-w-6xl px-4 py-2">
       <div class="text-center text-xs sm:text-sm text-white/80">
-        <b class="text-white">FAQ</b> — аккордеон/спойлеры (требование практики 8).
+        Need help? Start here. For feedback, go to
+        <a class="link link-hover" style="color:var(--gold2)" href="./contact.html">Contact</a>.
       </div>
     </div>
   </div>
 
+  <!-- Header (same on all pages) -->
   <header class="sticky top-0 z-50 header-glass">
     <div class="mx-auto max-w-6xl px-4 py-3">
       <div class="navbar px-0">
+
         <div class="navbar-start gap-3">
-          <a href="index.html" class="flex items-center gap-3">
+          <a href="./index.html#top" class="flex items-center gap-3">
             <img src="./assets/logo.png" alt="W_NETVISUS logo" class="h-10 w-10 object-contain" />
             <div class="leading-tight">
               <div class="font-extrabold tracking-wide text-white">W_NETVISUS</div>
@@ -117,22 +46,23 @@
 
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 gap-1">
-            <li><a class="navlink rounded-xl" data-nav="home" href="index.html">Главная</a></li>
-            <li><a class="navlink rounded-xl" data-nav="contacts" href="contacts.html">Контакты / Отзывы</a></li>
-            <li><a class="navlink rounded-xl" data-nav="faq" href="faq.html">FAQ</a></li>
+            <li><a class="navlink rounded-xl" href="./index.html">Home</a></li>
+            <li><a class="navlink rounded-xl" href="./contact.html">Contact</a></li>
+            <li><a class="navlink is-active rounded-xl" href="./faq.html">FAQ</a></li>
           </ul>
         </div>
 
         <div class="navbar-end gap-2">
-          <a href="index.html#download" class="btn btn-primary btn-sm sm:btn-md">Download</a>
-          <a href="contacts.html" class="btn btn-outline gold btn-sm sm:btn-md">Contact</a>
+          <a href="./index.html#download" class="btn btn-primary btn-sm sm:btn-md">Download</a>
+          <a href="./contact.html" class="btn btn-outline gold btn-sm sm:btn-md">Contact</a>
 
           <div class="dropdown dropdown-end lg:hidden">
             <label tabindex="0" class="btn btn-ghost btn-sm text-white hover:bg-white/10">Menu</label>
-            <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-[#110C09]/95 border border-white/10 rounded-2xl w-72">
-              <li><a class="text-white/85 hover:text-white" data-nav="home" href="index.html">Главная</a></li>
-              <li><a class="text-white/85 hover:text-white" data-nav="contacts" href="contacts.html">Контакты / Отзывы</a></li>
-              <li><a class="text-white/85 hover:text-white" data-nav="faq" href="faq.html">FAQ</a></li>
+            <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-[#110C09]/95 border border-white/10 rounded-2xl w-56">
+              <li><a class="text-white/85 hover:text-white" href="./index.html">Home</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./contact.html">Contact</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./faq.html">FAQ</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./index.html#download">Download</a></li>
             </ul>
           </div>
         </div>
@@ -141,93 +71,139 @@
     </div>
   </header>
 
-  <main class="page-hero">
-    <div class="mx-auto max-w-6xl px-4 py-12 lg:py-14">
-      <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-white">Часто задаваемые вопросы</h1>
-      <p class="mt-3 text-white/75 max-w-2xl">
-        Аккордеон сделан на daisyUI (collapse). Добавлено 6 вопросов — как в примере (3–5+).
+  <!-- Page hero -->
+  <section class="page-hero">
+    <div class="mx-auto max-w-6xl px-4 py-14">
+      <div class="text-xs font-semibold tracking-wide text-white/60">Help Center</div>
+      <h1 class="mt-3 text-5xl md:text-6xl font-extrabold tracking-tight text-white">FAQ</h1>
+      <p class="mt-4 text-white/75 max-w-2xl">
+        Click a question to reveal the answer. This page uses a daisyUI accordion (collapse).
       </p>
-    </div>
-  </main>
-
-  <section class="bg-slate-50">
-    <div class="mx-auto max-w-6xl px-4 py-12">
-      <div class="card paper-card">
-        <div class="card-body">
-          <h2 class="card-title text-base">FAQ</h2>
-          <p class="muted-light text-sm">Нажми на вопрос — откроется ответ.</p>
-
-          <div class="mt-5 space-y-3">
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" checked />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Как начать пользоваться W_NETVISUS?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                Установи зависимости, запусти GUI-оболочку и укажи подсеть/интерфейс. Для raw-режимов может понадобиться sudo/admin.
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Почему нужны права администратора?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                Raw TCP SYN/UDP сканирование использует низкоуровневые операции с пакетами — ОС часто ограничивает это для обычных пользователей.
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Что означает статус “filtered”?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                Фаервол/ACL мог дропать пакеты или не пропускать ответы — поэтому нельзя однозначно подтвердить open/closed.
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Насколько точна идентификация ОС/сервисов?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                Это best-effort: зависит от качества fingerprint-базы и условий сети (NAT, прокси, middleboxes, потери пакетов).
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Можно ли экспортировать результаты?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                В планах — CSV/JSON экспорт. Для практики можно оставить как “Planned”.
-              </div>
-            </div>
-
-            <div class="collapse collapse-arrow bg-white border border-slate-200 rounded-2xl">
-              <input type="radio" name="faq" />
-              <div class="collapse-title text-sm font-semibold text-slate-900">
-                Куда писать баги/предложения?
-              </div>
-              <div class="collapse-content text-sm text-slate-600">
-                На учебной версии — в форму “Контакты / Отзывы”. В реальном проекте — Issues/Discussions на GitHub.
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 flex flex-wrap gap-3">
-            <a class="btn btn-primary" href="contacts.html">Задать вопрос</a>
-            <a class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50" href="index.html">На главную</a>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
+  <!-- Content -->
+  <section class="below">
+    <div class="mx-auto max-w-6xl px-4 py-14 relative">
+
+      <div class="grid gap-4 lg:grid-cols-3">
+        <!-- Accordion -->
+        <div class="lg:col-span-2 card paper-card">
+          <div class="card-body">
+            <h2 class="card-title text-xl">Common questions</h2>
+            <p class="text-slate-600">6+ questions as required.</p>
+
+            <div class="mt-6 space-y-3">
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  Why do I need admin/sudo for some scans?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  Raw packet modes (for example TCP SYN) may require elevated privileges depending on OS/network policy.
+                  If you run unprivileged, use safer modes (connect scan) where available.
+                </div>
+              </div>
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  What does “filtered” mean?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  “Filtered” typically means probes are dropped by a firewall/ACL, so the scanner can’t confirm open/closed.
+                  Try another timing profile, check routing, or validate with a known open service.
+                </div>
+              </div>
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  How accurate is OS/service fingerprinting?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  It’s best-effort. Accuracy depends on fingerprint coverage, network conditions, middleboxes,
+                  and how “noisy” the target stack is. Use results as hints, not ground truth.
+                </div>
+              </div>
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  What ports should I scan first?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  Start with a small “top ports” set (SSH, HTTP(S), RDP, SMB, DNS) to validate reachability,
+                  then expand as needed. Avoid scanning everything if you don’t need it.
+                </div>
+              </div>
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  Why do I see false negatives on UDP?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  UDP often has no response for “open” ports; timeouts are common. Many services only reply to valid payloads.
+                  Increase retries, tune timeouts, and test with service-specific probes.
+                </div>
+              </div>
+
+              <div class="collapse collapse-arrow bg-white/70 border border-slate-200 rounded-2xl">
+                <input type="checkbox" />
+                <div class="collapse-title text-base font-semibold text-slate-900">
+                  How do I interpret the SONAR / map visualization?
+                </div>
+                <div class="collapse-content text-slate-600">
+                  SONAR is a visual activity indicator: it highlights discovered hosts and how “active” they are during a scan.
+                  Use it for quick triage, then inspect host details (ports/services) for decisions.
+                </div>
+              </div>
+
+            </div>
+
+            <div class="mt-8 flex flex-wrap gap-3">
+              <a href="./contact.html" class="btn btn-primary">Ask a question</a>
+              <a href="./index.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">
+                Back to Home
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side card -->
+        <div class="card paper-card">
+          <div class="card-body">
+            <h2 class="card-title text-xl">Quick links</h2>
+            <p class="text-slate-600">Useful pages and repository links.</p>
+
+            <div class="mt-4 space-y-2">
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start" href="./index.html#documentation">
+                Docs section (Home)
+              </a>
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start" href="./index.html#download">
+                Download section (Home)
+              </a>
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start" href="./contact.html">
+                Contact page
+              </a>
+              <a class="btn btn-sm btn-outline border-slate-300 text-slate-900 hover:bg-slate-50 w-full justify-start" href="./404.html">
+                404 page
+              </a>
+            </div>
+
+            <div class="mt-6 text-xs text-slate-500">
+              Tip: validate internal links locally and on GitHub Pages to avoid broken anchors.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer (same on all pages) -->
   <footer class="footerline bg-white">
     <div class="mx-auto max-w-6xl px-4 py-10">
       <div class="grid gap-6 md:grid-cols-3">
@@ -240,25 +216,34 @@
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-600">
-            Multi-page practice website (P8). Warm charcoal + gold.
+            Multi-page practice website (P8). Warm charcoal + gold. Tailwind + daisyUI.
           </p>
         </div>
 
         <div>
-          <div class="font-bold text-slate-900">Навигация</div>
+          <div class="font-bold text-slate-900">Navigation</div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            <li><a class="link link-hover" href="index.html">Главная</a></li>
-            <li><a class="link link-hover" href="contacts.html">Контакты / Отзывы</a></li>
-            <li><a class="link link-hover" href="faq.html">FAQ</a></li>
+            <li><a class="link link-hover" href="./index.html">Home</a></li>
+            <li><a class="link link-hover" href="./contact.html">Contact</a></li>
+            <li><a class="link link-hover" href="./faq.html">FAQ</a></li>
+            <li><a class="link link-hover" href="./index.html#download">Download</a></li>
           </ul>
         </div>
 
         <div>
-          <div class="font-bold text-slate-900">Тех</div>
+          <div class="font-bold text-slate-900">Links</div>
           <ul class="mt-3 space-y-2 text-sm text-slate-600">
-            <li>Tailwind (CDN) + daisyUI (CDN)</li>
-            <li>Единый UI на всех страницах</li>
-            <li>GitHub Pages ready</li>
+            <li>
+              <a class="link link-hover" href="https://github.com/TheWestX/W_NETVISUS" target="_blank" rel="noopener">
+                Repository
+              </a>
+            </li>
+            <li>
+              <a class="link link-hover" href="https://github.com/TheWestX/W_NETVISUS/releases" target="_blank" rel="noopener">
+                Releases
+              </a>
+            </li>
+            <li><a class="link link-hover" href="./404.html">404 page</a></li>
           </ul>
           <div class="mt-4">
             <span class="badge badge-outline border-slate-300 text-slate-700">Practice 8</span>
@@ -272,15 +257,6 @@
       </div>
     </div>
   </footer>
-
-  <script>
-    (function () {
-      const page = document.body.getAttribute("data-page");
-      document.querySelectorAll("[data-nav]").forEach(a => {
-        if (a.getAttribute("data-nav") === page) a.classList.add("is-active");
-      });
-    })();
-  </script>
 
 </body>
 </html>
