@@ -15,6 +15,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daisyui/5.1.25/themes.css" />
 
   <link rel="stylesheet" href="./styles/styles.css" />
+
+  <style>
+    /* Inline helpers for P10: error placeholders + a11y */
+    .form-error{
+      margin-top: .35rem;
+      font-size: .875rem;
+      line-height: 1.25rem;
+      color: #dc2626; /* red-600 */
+      display: none;
+    }
+    .form-error.is-visible{ display:block; }
+    .is-invalid{
+      border-color: rgba(220,38,38,.65) !important;
+      box-shadow: 0 0 0 3px rgba(220,38,38,.14) !important;
+    }
+  </style>
 </head>
 
 <body class="min-h-screen">
@@ -46,7 +62,7 @@
         <div class="navbar-center hidden lg:flex">
           <ul class="menu menu-horizontal px-1 gap-1">
             <li><a class="navlink rounded-xl" href="./index.html">Home</a></li>
-            <li><a class="navlink is-active rounded-xl" href="./contact.html">Contact</a></li>
+            <li><a class="navlink rounded-xl" href="./contact.html" aria-current="page">Contact</a></li>
             <li><a class="navlink rounded-xl" href="./faq.html">FAQ</a></li>
           </ul>
         </div>
@@ -59,7 +75,7 @@
             <label tabindex="0" class="btn btn-ghost btn-sm text-white hover:bg-white/10">Menu</label>
             <ul tabindex="0" class="menu dropdown-content mt-3 p-2 shadow bg-[#110C09]/95 border border-white/10 rounded-2xl w-56">
               <li><a class="text-white/85 hover:text-white" href="./index.html">Home</a></li>
-              <li><a class="text-white/85 hover:text-white" href="./contact.html">Contact</a></li>
+              <li><a class="text-white/85 hover:text-white" href="./contact.html" aria-current="page">Contact</a></li>
               <li><a class="text-white/85 hover:text-white" href="./faq.html">FAQ</a></li>
               <li><a class="text-white/85 hover:text-white" href="./index.html#download">Download</a></li>
             </ul>
@@ -77,7 +93,7 @@
       <h1 class="mt-3 text-5xl md:text-6xl font-extrabold tracking-tight text-white">Contact</h1>
       <p class="mt-4 text-white/75 max-w-2xl">
         Send feedback or questions. This is a practice form (no backend),
-        but fields and validation are real.
+        but validation, events, and console logging are real.
       </p>
     </div>
   </section>
@@ -92,80 +108,161 @@
         <div class="card paper-card">
           <div class="card-body">
             <h2 class="card-title text-xl">Feedback form</h2>
-            <p class="text-slate-600">All fields are required, including consent.</p>
+            <p class="text-slate-600">
+              Practice 10: validation + submit event handling + console logging (separate scripts).
+            </p>
 
-            <form class="mt-6 space-y-4" action="#" method="post">
+            <!-- SUCCESS ALERT (hidden by default; shown by validation.js when valid) -->
+            <div id="formSuccess" class="alert alert-success hidden mt-6" role="status" aria-live="polite">
+              <span>Form submitted! Data printed to the console.</span>
+            </div>
 
+            <!-- IMPORTANT: id must be feedbackForm (P10) -->
+            <form id="feedbackForm" class="mt-6 space-y-4" action="#" method="post" novalidate>
+
+              <!-- Fullname (required, at least 2 words) -->
               <label class="form-control w-full">
                 <div class="label">
-                  <span class="label-text text-slate-700">Name</span>
+                  <span class="label-text text-slate-700">
+                    Full name <span class="text-red-600">*</span>
+                  </span>
                 </div>
+
                 <input
-                  required
                   class="input input-bordered w-full bg-white"
                   type="text"
-                  name="name"
-                  placeholder="Your name"
+                  id="fullname"
+                  name="fullname"
+                  placeholder="Ivanov Ivan"
+                  autocomplete="name"
+                  aria-describedby="fullnameHelp fullnameError"
                 />
+
+                <div class="label">
+                  <span class="label-text-alt text-slate-500" id="fullnameHelp">
+                    Enter at least 2 words (first + last name).
+                  </span>
+                </div>
+
+                <!-- error placeholder -->
+                <div id="fullnameError" class="form-error" data-error-for="fullname"></div>
               </label>
 
+              <!-- Phone (required, at least 10 digits) -->
               <label class="form-control w-full">
                 <div class="label">
-                  <span class="label-text text-slate-700">Email</span>
+                  <span class="label-text text-slate-700">
+                    Phone <span class="text-red-600">*</span>
+                  </span>
                 </div>
+
                 <input
-                  required
+                  class="input input-bordered w-full bg-white"
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  aria-describedby="phoneHelp phoneError"
+                />
+
+                <div class="label">
+                  <span class="label-text-alt text-slate-500" id="phoneHelp">
+                    Format: +7 (XXX) XXX-XX-XX (at least 10 digits required).
+                  </span>
+                </div>
+
+                <!-- error placeholder -->
+                <div id="phoneError" class="form-error" data-error-for="phone"></div>
+              </label>
+
+              <!-- Email (required) -->
+              <label class="form-control w-full">
+                <div class="label">
+                  <span class="label-text text-slate-700">
+                    Email <span class="text-red-600">*</span>
+                  </span>
+                </div>
+
+                <input
                   class="input input-bordered w-full bg-white"
                   type="email"
+                  id="email"
                   name="email"
-                  placeholder="you@example.com"
+                  placeholder="example@mail.com"
+                  autocomplete="email"
+                  aria-describedby="emailHelp emailError"
                 />
-              </label>
 
-              <label class="form-control w-full">
                 <div class="label">
-                  <span class="label-text text-slate-700">Topic</span>
+                  <span class="label-text-alt text-slate-500" id="emailHelp">
+                    Enter a valid email address.
+                  </span>
                 </div>
-                <select required class="select select-bordered w-full bg-white" name="topic">
-                  <option value="" disabled selected>Select a topic</option>
-                  <option>Bug report</option>
-                  <option>Feature request</option>
-                  <option>Usage question</option>
-                  <option>Security</option>
-                  <option>Other</option>
-                </select>
+
+                <!-- error placeholder -->
+                <div id="emailError" class="form-error" data-error-for="email"></div>
               </label>
 
+              <!-- Message (optional, up to 500) -->
               <label class="form-control w-full">
                 <div class="label">
                   <span class="label-text text-slate-700">Message</span>
+                  <span class="label-text-alt text-slate-500">
+                    <span id="messageCount">0</span>/500
+                  </span>
                 </div>
+
                 <textarea
-                  required
                   class="textarea textarea-bordered w-full bg-white min-h-32"
+                  id="message"
                   name="message"
-                  placeholder="Write your message..."
+                  placeholder="Your message… (optional)"
+                  maxlength="500"
+                  aria-describedby="messageHelp messageError"
                 ></textarea>
+
+                <div class="label">
+                  <span class="label-text-alt text-slate-500" id="messageHelp">
+                    Up to 500 characters.
+                  </span>
+                </div>
+
+                <!-- error placeholder (in case you validate length / запрещённые символы и т.п.) -->
+                <div id="messageError" class="form-error" data-error-for="message"></div>
               </label>
 
-              <label class="label cursor-pointer justify-start gap-3">
-                <input required type="checkbox" class="checkbox checkbox-sm" />
-                <span class="label-text text-slate-700">
-                  I consent to data processing for the purpose of responding.
-                </span>
-              </label>
+              <!-- Agreement (required) -->
+              <div class="space-y-2">
+                <label class="label cursor-pointer justify-start gap-3">
+                  <input type="checkbox" id="agreement" name="agreement" class="checkbox checkbox-sm" aria-describedby="agreementError" />
+                  <span class="label-text text-slate-700">
+                    I consent to personal data processing for the purpose of responding.
+                    <span class="text-red-600">*</span>
+                  </span>
+                </label>
 
+                <!-- error placeholder -->
+                <div id="agreementError" class="form-error" data-error-for="agreement"></div>
+              </div>
+
+              <!-- Buttons -->
               <div class="flex flex-wrap gap-3 pt-2">
                 <button type="submit" class="btn btn-primary">Send</button>
+                <button type="reset" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">
+                  Clear
+                </button>
                 <a href="./faq.html" class="btn btn-outline border-slate-300 text-slate-900 hover:bg-slate-50">
                   Read FAQ first
                 </a>
               </div>
 
               <div class="text-xs text-slate-500 pt-1">
-                Note: this form is static (no backend). For a real project, connect a handler endpoint.
+                Note: this page is static. For a real project, connect a backend endpoint.
               </div>
             </form>
+
           </div>
         </div>
 
@@ -237,7 +334,7 @@
             </div>
           </div>
           <p class="mt-4 text-sm text-slate-600">
-            Multi-page practice website (P8). Warm charcoal + gold. Tailwind + daisyUI.
+            Multi-page practice website. Warm charcoal + gold. Tailwind + daisyUI.
           </p>
         </div>
 
@@ -267,7 +364,7 @@
             <li><a class="link link-hover" href="./404.html">404 page</a></li>
           </ul>
           <div class="mt-4">
-            <span class="badge badge-outline border-slate-300 text-slate-700">Practice 8</span>
+            <span class="badge badge-outline border-slate-300 text-slate-700">Practice</span>
           </div>
         </div>
       </div>
@@ -279,5 +376,20 @@
     </div>
   </footer>
 
+  <!-- P10: split logic into 2 scripts (validation + console logger) -->
+  <script src="./scripts/validation.js"></script>
+  <script src="./scripts/consoleLogger.js"></script>
+
+  <!-- Optional: message counter (safe even if your validation.js already does it) -->
+  <script>
+    (function () {
+      const ta = document.getElementById('message');
+      const out = document.getElementById('messageCount');
+      if (!ta || !out) return;
+      const update = () => { out.textContent = String(ta.value.length); };
+      ta.addEventListener('input', update);
+      update();
+    })();
+  </script>
 </body>
 </html>

@@ -211,3 +211,203 @@ body{overflow-x:hidden}
   line-height: 0.9;
   letter-spacing: -2px;
 }
+
+/* =========================================================
+   Polish pack (P8/P10) — makes UI feel “finished”
+   Safe: only adds/overrides a few things, doesn’t break layout
+========================================================= */
+
+/* Better base rendering */
+html{
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Nice text selection */
+::selection{
+  background: rgba(225,195,154,.45);
+  color: #1b130e;
+}
+
+/* Improve anchor offset when header is sticky */
+:root{
+  --sticky-offset: 96px;
+}
+.anchor{ scroll-margin-top: var(--sticky-offset); }
+
+/* Slightly nicer body on light section */
+.below{
+  color: rgba(15,23,42,.92);
+}
+
+/* Cards: micro-interaction (subtle) */
+.paper-card{
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.paper-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 44px rgba(0,0,0,.08);
+  border-color: rgba(15,23,42,.14);
+}
+
+/* Navlink active should feel clickable */
+.navlink{
+  transition: background .15s ease, color .15s ease, border-color .15s ease, transform .15s ease;
+}
+.navlink:active{
+  transform: scale(.98);
+}
+
+/* Buttons: ensure no ugly rings anywhere */
+.btn, .input, .select, .textarea, .checkbox{
+  --tw-ring-color: transparent !important;
+  --tw-ring-shadow: 0 0 #0000 !important;
+  outline: none !important;
+}
+
+/* BUT: we still want accessibility — add a soft gold focus style */
+.btn:focus-visible,
+.input:focus-visible,
+.select:focus-visible,
+.textarea:focus-visible,
+.checkbox:focus-visible{
+  box-shadow: 0 0 0 3px rgba(225,195,154,.35) !important;
+  border-color: rgba(199,161,122,.75) !important;
+}
+
+/* Make inputs feel more premium */
+.input, .select, .textarea{
+  border-color: rgba(15,23,42,.16) !important;
+  transition: border-color .15s ease, box-shadow .15s ease, background .15s ease;
+}
+.input:hover, .select:hover, .textarea:hover{
+  border-color: rgba(15,23,42,.22) !important;
+}
+
+/* =========================================================
+   P10 validation styling
+   (your JS adds: input-error / textarea-error,
+    and inserts [data-error-for] messages)
+========================================================= */
+
+/* Error borders for daisyUI inputs */
+.input.input-error,
+.textarea.textarea-error{
+  border-color: rgba(220, 38, 38, .85) !important; /* red-600-ish */
+  background: rgba(220, 38, 38, .04) !important;
+}
+
+/* Error focus should still be clear */
+.input.input-error:focus-visible,
+.textarea.textarea-error:focus-visible{
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .20) !important;
+  border-color: rgba(220, 38, 38, .95) !important;
+}
+
+/* Checkbox error message spacing */
+[data-error-for="agreement"]{
+  margin-top: .35rem;
+}
+
+/* Success alert spacing polish */
+#formSuccess.alert{
+  border: 1px solid rgba(34, 197, 94, .25);
+  background: rgba(34, 197, 94, .10);
+  color: rgba(15,23,42,.92);
+}
+
+/* =========================================================
+   Accordion polish (FAQ)
+========================================================= */
+.collapse{
+  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+}
+.collapse:hover{
+  transform: translateY(-1px);
+  border-color: rgba(15,23,42,.18) !important;
+}
+
+/* Make collapse title easier to read */
+.collapse-title{
+  line-height: 1.25;
+}
+
+/* =========================================================
+   Scrollbar (optional but looks clean)
+========================================================= */
+@supports selector(::-webkit-scrollbar){
+  ::-webkit-scrollbar{ width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track{ background: rgba(15,23,42,.06); }
+  ::-webkit-scrollbar-thumb{
+    background: rgba(199,161,122,.35);
+    border-radius: 999px;
+    border: 2px solid rgba(15,23,42,.06);
+  }
+  ::-webkit-scrollbar-thumb:hover{
+    background: rgba(199,161,122,.50);
+  }
+}
+
+/* =========================================================
+   Reduce motion for accessibility
+========================================================= */
+@media (prefers-reduced-motion: reduce){
+  *{
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   Premium form errors (under-field) + mobile active nav
+========================================================= */
+
+/* Under-field error text block */
+.form-error{
+  margin-top: .35rem;
+  font-size: .875rem;
+  line-height: 1.25;
+  color: rgba(220, 38, 38, .92);
+  display: none; /* показываем только если есть текст */
+}
+
+/* When error span has text -> show */
+.form-error:not(:empty){
+  display: block;
+}
+
+/* Inputs in error state (works with your P10 classes) */
+.input.input-error,
+.select.select-error,
+.textarea.textarea-error{
+  border-color: rgba(220, 38, 38, .90) !important;
+  background: rgba(220, 38, 38, .04) !important;
+}
+
+.input.input-error:focus-visible,
+.select.select-error:focus-visible,
+.textarea.textarea-error:focus-visible{
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, .20) !important;
+  border-color: rgba(220, 38, 38, .95) !important;
+}
+
+/* Checkbox error */
+.checkbox.checkbox-error{
+  outline: 2px solid rgba(220, 38, 38, .35) !important;
+  outline-offset: 2px;
+}
+
+/* ===== Active menu link (desktop + mobile) via aria-current ===== */
+.menu a[aria-current="page"]{
+  color: rgba(255,255,255,.98) !important;
+  background: rgba(255,255,255,.10) !important;
+  border: 1px solid rgba(225,195,154,.18) !important;
+}
+
+/* Mobile dropdown links: increase hit area + better hover */
+.dropdown-content .menu a{
+  padding-top: .7rem;
+  padding-bottom: .7rem;
+}
